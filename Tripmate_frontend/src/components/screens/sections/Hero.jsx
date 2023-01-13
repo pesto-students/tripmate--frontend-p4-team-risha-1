@@ -19,7 +19,7 @@ const Hero = () => {
       }}
     >
       <div className="container flex flex-col md:flex-row">
-        <div className="flex flex-col md:justify-center justify-start h-96 items-center content-center w-full pl-6">
+        <div className="md:flex flex-col md:justify-center justify-start h-96 items-center content-center w-full pl-6 hidden">
           <h1 className="md:text-4xl text-lg text-center font-medium text-black">
             Leave your footprints
             <br /> in the most beautiful places.

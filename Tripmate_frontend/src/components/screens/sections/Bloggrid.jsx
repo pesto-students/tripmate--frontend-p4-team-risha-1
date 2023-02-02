@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Blogcard from "./Blogcard";
-
+import { useSelector, useDispatch } from "react-redux";
+import { fetchBlogsAsync } from "../../../slice/blogSlice";
 const Bloggrid = () => {
-  const [blogs, setBlogs] = useState([]);
-  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  const blogs = useSelector((state) => state.blogs.blogs);
+  const dispatch = useDispatch();
+  console.log(blogs);
+  // const blogs = useSelector((state) => state.blogs);
+  // console.log(blogs);
   useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const { data } = await axios.get(`${backendURL}/blog`);
-        console.log(data);
-        setBlogs(data);
-      } catch (error) {
-        setBlogs(error);
-      }
-    };
-    fetchBlog();
+    dispatch(fetchBlogsAsync());
   }, []);
 
   return (
@@ -25,6 +20,7 @@ const Bloggrid = () => {
         Our Blogs
       </h1>
       <div className="flex flex-wrap -m-4">
+        {console.log(blogs)}
         {blogs.map((blog) => (
           <div class="max-w-sm m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">

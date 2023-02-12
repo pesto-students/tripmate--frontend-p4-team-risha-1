@@ -7,9 +7,6 @@ import { fetchBlogsAsync } from "../../../slice/blogSlice";
 const Bloggrid = () => {
   const blogs = useSelector((state) => state.blogs.blogs);
   const dispatch = useDispatch();
-  console.log(blogs);
-  // const blogs = useSelector((state) => state.blogs);
-  // console.log(blogs);
   useEffect(() => {
     dispatch(fetchBlogsAsync());
   }, []);
@@ -20,7 +17,6 @@ const Bloggrid = () => {
         Our Blogs
       </h1>
       <div className="flex flex-wrap -m-4">
-        {console.log(blogs)}
         {blogs.map((blog) => (
           <div class="max-w-sm m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">

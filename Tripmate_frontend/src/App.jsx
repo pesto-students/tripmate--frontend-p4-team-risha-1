@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Homepage from "./components/screens/Homepage";
+import BlogSingle from "./components/screens/BlogSingle";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -12,8 +13,8 @@ const App = () => {
         <div className="">
           <Routes>
             <Route path="/" element={<Homepage />} exact></Route>
-            <Route path="/trip-details" element={<h1>Hello</h1>} />
-            <Route path="/blog-post/:id" element={<h2>Mon</h2>} />
+            <Route path="/trip-details/" element={<h1>Hello</h1>} />
+            <Route path="/blog-post/:id" element={<BlogSingle></BlogSingle>} />
           </Routes>
         </div>
         <Footer />

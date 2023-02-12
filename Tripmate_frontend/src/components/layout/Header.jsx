@@ -4,7 +4,7 @@ import { Navbar } from "flowbite-react";
 function Header() {
   return (
     <Navbar fluid={false} rounded={true} className="bg-gold-500 font-Nunito">
-      <Navbar.Brand href="https://flowbite.com/">
+      <Navbar.Brand href="/">
         <span className="self-center whitespace-nowrap text-xl font-semibold text-punch-500 dark:text-white">
           TRIPMATE
         </span>

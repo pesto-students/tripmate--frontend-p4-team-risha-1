@@ -44,14 +44,4 @@ export const blogSlice = createSlice({
   },
 });
 
-// export const getBlogData = () => async (dispatch) => {
-//   const { data } = await axios.get(`${backendURL}/blog`);
-//   dispatch({
-//     type: "getBlogs",
-//     payload: data,
-//   });
-// };
-
-//export const { getBlogData } = blogSlice.actions;
-
 export default blogSlice;

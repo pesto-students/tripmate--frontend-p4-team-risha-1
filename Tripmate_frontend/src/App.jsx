@@ -6,6 +6,9 @@ import BlogSingle from "./components/screens/BlogSingle";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TripDetails from "./components/screens/TripDetails";
 import Login from "./components/screens/Login";
+import Registeration from "./components/screens/Registeration";
+import ContactUs from "./components/screens/ContactUs";
+import AboutUs from "./components/screens/AboutUs";
 const App = () => {
   return (
     <Router>
@@ -17,6 +20,9 @@ const App = () => {
             <Route path="/trip-details/" element={<TripDetails />} />
             <Route path="/blog-post/:id" element={<BlogSingle></BlogSingle>} />
             <Route path="/login" element={<Login />} ></Route>
+            <Route path="/reg" element={<Registeration />} ></Route>
+            <Route path="/contact-us" element={<ContactUs />} ></Route>
+            <Route path="/about-us" element={<AboutUs />} ></Route>
           </Routes>
         </div>
         <Footer />

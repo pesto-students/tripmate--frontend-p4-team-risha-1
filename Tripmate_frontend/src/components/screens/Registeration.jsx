@@ -94,17 +94,12 @@ const Registeration = () => {
                     type="submit"
                     className="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-punch-600 border border-transparent rounded-md hover:bg-punch-500 focus:outline-none focus:border-punch-700 focus:shadow-outline-punch active:bg-punch-700 transition duration-150 ease-in-out"        
                   >
-                    Sign in
+                    Sign up
                   </button>
                 </span>
               </div>
             </form>
             <div className="flex justify-center mt-2 space-x-4">
-              <Link to="/">
-                {" "}
-                <FcGoogle size={30} />
-              </Link>
-              <GrFacebook size={30} />
             </div>
           </div>
         </div>

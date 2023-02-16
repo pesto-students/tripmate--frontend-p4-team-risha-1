@@ -9,6 +9,7 @@ import Login from "./components/screens/Login";
 import Registeration from "./components/screens/Registeration";
 import ContactUs from "./components/screens/ContactUs";
 import AboutUs from "./components/screens/AboutUs";
+import FAQ from "./components/screens/Faq";
 const App = () => {
   return (
     <Router>
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/reg" element={<Registeration />} ></Route>
             <Route path="/contact-us" element={<ContactUs />} ></Route>
             <Route path="/about-us" element={<AboutUs />} ></Route>
+            <Route path="/faq" element={<FAQ />} ></Route>
           </Routes>
         </div>
         <Footer />

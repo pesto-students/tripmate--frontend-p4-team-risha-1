@@ -25,9 +25,6 @@ function Header() {
         <Navbar.Link href="/faq" className="md:px-3 md:py-2">
           FAQ
         </Navbar.Link>
-        <Navbar.Link href="/navbars" className="md:px-3 md:py-2">
-          Pricing
-        </Navbar.Link>
         <Navbar.Link
           href="/contact-us"
           className="md:px-3 md:py-2 md:bg-gold-100 md:rounded md:shadow-md"

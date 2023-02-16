@@ -14,10 +14,9 @@ const Footers = () => {
           className="text-white"
         />
         <Footer.LinkGroup className="text-white">
-          <Footer.Link href="#">About</Footer.Link>
-          <Footer.Link href="#">Privacy Policy</Footer.Link>
-          <Footer.Link href="#">Licensing</Footer.Link>
-          <Footer.Link href="#">Contact</Footer.Link>
+          <Footer.Link href="/about-us">About</Footer.Link>
+          <Footer.Link href="/T&C">Terms & Conditions</Footer.Link>
+          <Footer.Link href="/contact-us">Contact</Footer.Link>
         </Footer.LinkGroup>
       </Footer>
     </div>

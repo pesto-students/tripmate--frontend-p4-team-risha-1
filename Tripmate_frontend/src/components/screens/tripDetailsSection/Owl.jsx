@@ -1,13 +1,14 @@
 import React from "react";
 import OwlCarousel from "react-owl-carousel";
 
-const Owl = () => {
+const Owl = ({ tourData }) => {
+  //console.log(tourData);
   const options = {
     margin: 30,
     responsiveClass: true,
     nav: true,
     dots: false,
-    autoplay: false,
+    autoplay: true,
     navText: ["Prev", "Next"],
     smartSpeed: 1000,
     responsive: {
@@ -28,138 +29,35 @@ const Owl = () => {
       },
     },
   };
+
   return (
     <OwlCarousel className="owl-theme" loop margin={10} nav {...options}>
-      <div class="item">
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-          <img
-            class="w-48 h-48"
-            src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-            alt="Sunset in the mountains"
-          />
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
+      {tourData.results?.map((place) => {
+        let photos = place.photos ?? [];
+        let photo = photos[0]?.photo_reference;
+        return (
+          <div className="item">
+            <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+              <img
+                class="w-48 h-48"
+                src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${photo}&key=${
+                  import.meta.env.VITE_GOOGLE_KEY
+                }`}
+              />
+
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">{place.name}</div>
+                <p className="text-gray-700 text-base">{place.rating}</p>
+              </div>
+              <div className="px-6 pt-4 pb-2">
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"></span>
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"></span>
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"></span>
+              </div>
+            </div>
           </div>
-          <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #photography
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #travel
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #winter
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-          <img
-            class="w-48 h-48"
-            src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-            alt="Sunset in the mountains"
-          />
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #photography
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #travel
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #winter
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-          <img
-            class="w-48 h-48"
-            src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-            alt="Sunset in the mountains"
-          />
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #photography
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #travel
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #winter
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-          <img
-            class="w-48 h-48"
-            src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-            alt="Sunset in the mountains"
-          />
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #photography
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #travel
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #winter
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-          <img
-            class="w-48 h-48"
-            src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-            alt="Sunset in the mountains"
-          />
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #photography
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #travel
-            </span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #winter
-            </span>
-          </div>
-        </div>
-      </div>
+        );
+      })}
     </OwlCarousel>
   );
 };

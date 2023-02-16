@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { GrFacebook } from "react-icons/gr";
 import { Link } from "react-router-dom";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div>
       <div
@@ -17,12 +19,12 @@ const Login = () => {
           </h2>
           <p className="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
             Or
-            <a
-              href="#"
-              className="font-medium text-punch-600 hover:text-punch-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+            <Link
+              to="/reg"
+              className="font-medium ml-1 text-punch-600 hover:text-punch-500 focus:outline-none focus:underline transition ease-in-out duration-150"
             >
               create a new account
-            </a>
+            </Link>
           </p>
         </div>
 
@@ -42,9 +44,9 @@ const Login = () => {
                     id="email"
                     name="email"
                     type="email"
-                    required=""
-                    autofocus=""
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 "
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>
@@ -62,6 +64,8 @@ const Login = () => {
                     id="password"
                     type="password"
                     required=""
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 "
                   />
                 </div>

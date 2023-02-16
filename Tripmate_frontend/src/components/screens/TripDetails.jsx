@@ -15,7 +15,8 @@ const api = createApi({
 });
 
 const TripDetails = () => {
-  const [data, setPhotosResponse] = useState(null);
+  const [data, setPhotosResponse] = useState("");
+  const [tourData, setTourData] = useState("");
   const [searchParams] = useSearchParams();
   //const []
   const location = searchParams.get("location");
@@ -39,25 +40,33 @@ const TripDetails = () => {
 
   useEffect(() => {
     const cordinates = async () => {
-      console.log("I am running");
-      // const place_url = `http://api.positionstack.com/v1/forward?access_key=${
-      //   import.meta.env.VITE_GEOCODE_API_KEY
-      // }&query=${location}`;
       const place_url = `https://us1.locationiq.com/v1/search?key=${
         import.meta.env.VITE_LOCATION_KEY
       }&q=${location}&format=json`;
-      const place = await axios.get(place_url);
-      console.log(place);
-      console.log(`....${JSON.parse(JSON.stringify(place.data))}`);
+      const { data } = await axios.get(place_url);
+      const lat = data[0].lat;
+      //setLettitude(lat);
+      const lon = data[0].lon;
+      //setLongitude(lon);
+      console.log(lat, lon);
+      console.log(`${import.meta.env.VITE_BACKEND_URL}/fetchPlaces`);
+      const d = await axios.post(`http://localhost:4000/fetchPlaces`, {
+        location: `${lat},${lon}`,
+        radius: 50000,
+        type: "tourist_attraction",
+      });
+
+      // console.log(d.data.results);
+      setTourData(d.data);
     };
     cordinates();
-  }, [location]);
+  }, []);
 
   return (
     <div>
       <div className="flex">
         <Aside />
-
+        {}
         <main className="flex h-auto w-full">
           <div className=" w-full md:w-2/3 shadow-lg rounded">
             <TripHeader location={location} data={data} />
@@ -65,7 +74,7 @@ const TripDetails = () => {
               <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">
                 Explore
               </h2>
-              <Owl />
+              <Owl tourData={tourData} />
             </div>
             {/* Notes section */}
             <div className="w-full px-4 py-4 h-auto bg-white">

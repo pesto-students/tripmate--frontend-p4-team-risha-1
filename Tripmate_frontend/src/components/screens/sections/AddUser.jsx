@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
-import {axios} from 'axios';
+import axios from "axios";
+import { async } from "regenerator-runtime";
 const ADD_USER = () => {
     // States for registration
   const [name, setName] = useState('');
@@ -26,27 +27,31 @@ const ADD_USER = () => {
     setuserRole(e.target.value);
     setSubmitted(false);
   };
- 
   // Handling the password change
   const handlePassword = (e) => {
     setPassword(e.target.value);
     setSubmitted(false);
   };
-  
  
   // Handling the form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
+    console.log("in submit");
     e.preventDefault();
     if (name === '' || email === '' ||userRole==='' || password === '') {
       setError(true);
     } else {
-      setSubmitted(true);
       try{
-        axios.post(`${backendUrl}/users`);
+        setSubmitted(true);
+        console.log("in try catch");
+        await axios.post(`${backendUrl}/users`,{
+            name :name,
+            email : email,
+           password:password             
+        });
+        
       }catch(e){
-
+        setError(false);
       }
-      setError(false);
     }
   };
   return (

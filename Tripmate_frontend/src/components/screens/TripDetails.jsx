@@ -1,84 +1,108 @@
-import React from "react";
-import { FaAngleDown } from "react-icons/fa";
+import React, { Fragment, useEffect, useState } from "react";
+
 import { BsCalendar2DateFill } from "react-icons/bs";
-import OwlCarousel from "react-owl-carousel";
+import { useSearchParams } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import Aside from "./tripDetailsSection/Aside";
+import Owl from "./tripDetailsSection/Owl";
+import { createApi } from "unsplash-js";
+import TripHeader from "./tripDetailsSection/TripHeader";
+import axios from "axios";
+
+const api = createApi({
+  accessKey: import.meta.env.VITE_UNSPLASH_ACCESSKEY,
+});
 
 const TripDetails = () => {
+  const [data, setPhotosResponse] = useState("");
+  const [tourData, setTourData] = useState("");
+  const [searchParams] = useSearchParams();
+  //const []
+  const location = searchParams.get("location");
+  console.log(location);
+  useEffect(() => {
+    api.search
+      .getPhotos({
+        query: `${location}`,
+        orientation: "landscape",
+        page: 1,
+        perPage: 1,
+      })
+      .then((result) => {
+        let img = result.response.results[0].urls.regular;
+        setPhotosResponse(img);
+      })
+      .catch(() => {
+        console.log("something went wrong!");
+      });
+  }, []);
+
+  useEffect(() => {
+    const cordinates = async () => {
+      const place_url = `https://us1.locationiq.com/v1/search?key=${
+        import.meta.env.VITE_LOCATION_KEY
+      }&q=${location}&format=json`;
+      const { data } = await axios.get(place_url);
+      const lat = data[0].lat;
+      //setLettitude(lat);
+      const lon = data[0].lon;
+      //setLongitude(lon);
+      console.log(lat, lon);
+      console.log(`${import.meta.env.VITE_BACKEND_URL}/fetchPlaces`);
+      const d = await axios.post(`http://localhost:4000/fetchPlaces`, {
+        location: `${lat},${lon}`,
+        radius: 50000,
+        type: "tourist_attraction",
+      });
+
+      // console.log(d.data.results);
+      setTourData(d.data);
+    };
+    cordinates();
+  }, []);
+
   return (
     <div>
       <div className="flex">
-        <aside className="h-screen sticky top-0 md:flex sm:hidden  bg-white w-1/5">
-          <div className="p-4">
-            <button className="rounded flex px-3 py-2 bg-firefly-800 text-white">
-              <div className="flex text-center justify-center">
-                <FaAngleDown className="mt-1" />{" "}
-                <span className="ml-2">OVERVIEW</span>
-              </div>
-            </button>
-          </div>
-        </aside>
-
-        <main className="flex flex-col h-screen w-full">
-          <div className="container bg-white h-screen w-2/3">
-            <div
-              className="flex h-[300px] bg-center relative"
-              style={{
-                backgroundImage: `url(https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80)`,
-                objectFit: "cover",
-              }}
-            >
-              <div className="rounded-xl bg-white shadow-2xl  h-40 absolute w-2/3 -bottom-4 left-[125px] flex flex-col justify-center items-center">
-                <h1 className="text-3xl font-black text-black ">
-                  Trip to Paris
-                </h1>
-                <div className="flex mt-5">
-                  <BsCalendar2DateFill />
-                  <span className="font-font-light ml-3">23-30</span>
-                </div>
-              </div>
+        <Aside />
+        {}
+        <main className="flex h-auto w-full">
+          <div className=" w-full md:w-2/3 shadow-lg rounded">
+            <TripHeader location={location} data={data} />
+            <div className="bg-gray-100 px-4 py-4 h-auto w-full container ">
+              <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">
+                Explore
+              </h2>
+              <Owl tourData={tourData} />
             </div>
-            <div className="bg-gray-100 px-4 py-4 h-[300px] w-full container ">
-              <h2 className="text-xl font-bold font-Nunito">Explore</h2>
-              <OwlCarousel className="owl-theme" loop margin={10} nav>
-                <div class="item">
-                  <h4>1</h4>
-                </div>
-                <div class="item">
-                  <h4>2</h4>
-                </div>
-                <div class="item">
-                  <h4>3</h4>
-                </div>
-                <div class="item">
-                  <h4>4</h4>
-                </div>
-                <div class="item">
-                  <h4>5</h4>
-                </div>
-                <div class="item">
-                  <h4>6</h4>
-                </div>
-                <div class="item">
-                  <h4>7</h4>
-                </div>
-                <div class="item">
-                  <h4>8</h4>
-                </div>
-                <div class="item">
-                  <h4>9</h4>
-                </div>
-                <div class="item">
-                  <h4>10</h4>
-                </div>
-                <div class="item">
-                  <h4>11</h4>
-                </div>
-                <div class="item">
-                  <h4>12</h4>
-                </div>
-              </OwlCarousel>
+            {/* Notes section */}
+            <div className="w-full px-4 py-4 h-auto bg-white">
+              <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">Notes</h2>
+              <form className="flex">
+                <input
+                  type="text"
+                  className="rounded px-4 py-4 bg-gray-200 w-[90%] border-0"
+                ></input>
+                <button className="rounded px-2 py-2 ml-2 text-white bg-firefly-700">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="hidden md:block overflow-hidden w-1/3 h-screen sticky top-0">
+            <div className="mapouter">
+              <div className="gmap_canvas h-screen w-full top-15">
+                <iframe
+                  className="w-full h-full sticky top-0"
+                  id="gmap_canvas"
+                  src={`https://maps.google.com/maps?q=${location}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                ></iframe>
+              </div>
             </div>
           </div>
         </main>

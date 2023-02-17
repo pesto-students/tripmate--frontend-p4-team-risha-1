@@ -4,12 +4,22 @@ const Aside = () => {
   return (
     <aside className="h-screen sticky top-0 md:flex hidden bg-white w-1/5">
       <div className="p-4">
-        <button className="rounded flex px-3 py-2 bg-firefly-800 text-white">
+        <a href="#overview" className="rounded flex px-3 py-2 text-black">
           <div className="flex text-center justify-center">
-            <FaAngleDown className="mt-1" />{" "}
-            <span className="ml-2">OVERVIEW</span>
+            <span className="ml-2">Overview</span>
           </div>
-        </button>
+        </a>
+
+        <a href="#restaurant" className="rounded flex px-3 py-2 text-black">
+          <div className="flex text-center justify-center">
+            <span className="ml-2">Restaurants</span>
+          </div>
+        </a>
+        <a href="#notes" className="rounded flex px-3 py-2 text-black">
+          <div className="flex text-center justify-center">
+            <span className="ml-2">Notes</span>
+          </div>
+        </a>
       </div>
     </aside>
   );

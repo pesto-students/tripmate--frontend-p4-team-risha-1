@@ -17,9 +17,11 @@ const api = createApi({
 const TripDetails = () => {
   const [data, setPhotosResponse] = useState("");
   const [tourData, setTourData] = useState("");
+  const [restaurant, setRestaurant] = useState("");
   const [searchParams] = useSearchParams();
-  //const []
   const location = searchParams.get("location");
+  const startDate = searchParams.get("startDate");
+  const endDate = searchParams.get("endDate");
   console.log(location);
   useEffect(() => {
     api.search
@@ -56,7 +58,14 @@ const TripDetails = () => {
         type: "tourist_attraction",
       });
 
+      const r = await axios.post(`http://localhost:4000/fetchPlaces`, {
+        location: `${lat},${lon}`,
+        radius: 50000,
+        type: "restaurant",
+      });
+
       // console.log(d.data.results);
+      setRestaurant(r.data);
       setTourData(d.data);
     };
     cordinates();
@@ -69,13 +78,26 @@ const TripDetails = () => {
         {}
         <main className="flex h-auto w-full">
           <div className=" w-full md:w-2/3 shadow-lg rounded">
-            <TripHeader location={location} data={data} />
+            <TripHeader
+              location={location}
+              data={data}
+              startDate={startDate}
+              endDate={endDate}
+            />
             <div className="bg-gray-100 px-4 py-4 h-auto w-full container ">
               <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">
-                Explore
+                Explore Tourist Places
               </h2>
               <Owl tourData={tourData} />
             </div>
+
+            <div className="bg-white px-4 py-4 h-auto w-full container ">
+              <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">
+                Popular Restaurant
+              </h2>
+              <Owl tourData={restaurant} />
+            </div>
+
             {/* Notes section */}
             <div className="w-full px-4 py-4 h-auto bg-white">
               <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">Notes</h2>

@@ -57,6 +57,10 @@ const Hero = () => {
       setValidation("Location field is required!");
     }
   };
+  const handleKnowMoreButton = (e) => {
+    e.preventDefault();
+    navigate("/about-us");
+  };
   return (
     <div
       className="flex flex-col p-3 w-full h-96 bg-no-repeat bg-cover bg-center "
@@ -70,7 +74,10 @@ const Hero = () => {
             Leave your footprints
             <br /> in the most beautiful places.
           </h1>
-          <button className="md:px-5 md:py-3 px-2 py-2 shadow-sm bg-punch-600 hover:bg-punch-400  rounded mt-5 text-white uppercase">
+          <button
+            className="md:px-5 md:py-3 px-2 py-2 shadow-sm bg-punch-600 hover:bg-punch-400  rounded mt-5 text-white uppercase"
+            onClick={handleKnowMoreButton}
+          >
             Know More
           </button>
         </div>
@@ -82,7 +89,7 @@ const Hero = () => {
                   htmlFor="location"
                   className="text-sm text-left mt-5 font-regular mb-3 text-gray-900 font-Nunito uppercase dark:text-white"
                 >
-                  What is your location?
+                  Where do you want to Go?
                 </label>
                 <input
                   type="text"

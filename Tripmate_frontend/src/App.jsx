@@ -11,7 +11,8 @@ import ContactUs from "./components/screens/ContactUs";
 import AboutUs from "./components/screens/AboutUs";
 import FAQ from "./components/screens/Faq";
 import TERMS from "./components/screens/TermsAndConditions";
-import ADD_USER from './components/screens/sections/AddUser'
+import USER_DETAILS from './components/screens/sections/UsersDetail'
+import ADDBLOG from './components/screens/sections/AddBlog';
 const App = () => {
   
   return (
@@ -29,7 +30,10 @@ const App = () => {
             <Route path="/about-us" element={<AboutUs />} ></Route>
             <Route path="/faq" element={<FAQ />} ></Route>
             <Route path="/t&c" element={<TERMS />} ></Route>
-            <Route path="/add_user" element={<ADD_USER />} ></Route>
+            <Route path="/userDetails" element={<USER_DETAILS />} ></Route>
+            <Route path="/addBlog" element={<ADDBLOG />} ></Route>
+
+            
           </Routes>
         </div>
         <Footer />

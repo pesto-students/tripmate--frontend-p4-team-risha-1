@@ -52,13 +52,13 @@ const TripDetails = () => {
       //setLongitude(lon);
       console.log(lat, lon);
       console.log(`${import.meta.env.VITE_BACKEND_URL}/fetchPlaces`);
-      const d = await axios.post(`http://localhost:4000/fetchPlaces`, {
+      const d = await axios.post(`https://tripmate-q32wjds34a-as.a.run.app/fetchPlaces`, {
         location: `${lat},${lon}`,
         radius: 50000,
         type: "tourist_attraction",
       });
 
-      const r = await axios.post(`http://localhost:4000/fetchPlaces`, {
+      const r = await axios.post(`https://tripmate-q32wjds34a-as.a.run.app/fetchPlaces`, {
         location: `${lat},${lon}`,
         radius: 50000,
         type: "restaurant",

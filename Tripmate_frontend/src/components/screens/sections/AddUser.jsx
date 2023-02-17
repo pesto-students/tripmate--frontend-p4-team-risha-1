@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 import axios from "axios";
 import { async } from "regenerator-runtime";
+import { data } from "jquery";
 const ADD_USER = () => {
     // States for registration
   const [name, setName] = useState('');
@@ -43,12 +44,11 @@ const ADD_USER = () => {
       try{
         setSubmitted(true);
         console.log("in try catch");
-        await axios.post(`${backendUrl}/users`,{
-            name :name,
-            email : email,
-           password:password             
-        });
-        
+        await axios.post(`${VITE_BACKEND_URL}/users`,{
+          name :name,
+          email : email,
+         password:password             
+      });        
       }catch(e){
         setError(false);
       }

@@ -1,7 +1,7 @@
 import React from "react";
 import { BsCalendar2DateFill } from "react-icons/bs";
 
-const TripHeader = ({ location, data }) => {
+const TripHeader = ({ location, data, startDate, endDate }) => {
   return (
     <div
       className=" flex  h-[300px] bg-center relative"
@@ -16,7 +16,9 @@ const TripHeader = ({ location, data }) => {
         </h1>
         <div className="flex mt-5">
           <BsCalendar2DateFill />
-          <span className="font-font-light ml-3">23-30</span>
+          <span className="font-font-light ml-3">
+            {startDate} to {endDate}
+          </span>
         </div>
       </div>
     </div>

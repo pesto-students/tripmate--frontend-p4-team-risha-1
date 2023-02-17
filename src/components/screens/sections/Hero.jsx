@@ -83,7 +83,7 @@ const Hero = () => {
         </div>
         <div className="flex justify-center w-full p-6">
           <div className="bg-white backdrop-blur-lg w-full border-gray-200 shadow-md rounded-lg py-3 px-4">
-            <form action="" method="post" noValidate>
+            <form action="src/components/screens/sections" method="post" noValidate>
               <div className="mb-6 flex flex-col  justify-center">
                 <label
                   htmlFor="location"

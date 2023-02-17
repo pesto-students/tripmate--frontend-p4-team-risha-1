@@ -37,7 +37,7 @@ const BlogSingle = () => {
                 <li className="space-x-2">
                   <a
                     className=" px-3 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-300 hover:text-gray-800 transition duration-300 border border-gray-600"
-                    href="#"
+                    href="src/components/screens#"
                   >
                     {blogData.tags}
                   </a>

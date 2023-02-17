@@ -1,16 +1,16 @@
 import React from "react";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import Homepage from "./components/screens/Homepage";
-import BlogSingle from "./components/screens/BlogSingle";
+import Header from "./components/layout/Header.jsx";
+import Footer from "./components/layout/Footer.jsx";
+import Homepage from "./components/screens/Homepage.jsx";
+import BlogSingle from "./components/screens/BlogSingle.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import TripDetails from "./components/screens/TripDetails";
-import Login from "./components/screens/Login";
-import Registeration from "./components/screens/Registeration";
-import ContactUs from "./components/screens/ContactUs";
-import AboutUs from "./components/screens/AboutUs";
-import FAQ from "./components/screens/Faq";
-import TERMS from "./components/screens/TermsAndConditions"
+import TripDetails from "./components/screens/TripDetails.jsx";
+import Login from "./components/screens/Login.jsx";
+import Registeration from "./components/screens/Registeration.jsx";
+import ContactUs from "./components/screens/ContactUs.jsx";
+import AboutUs from "./components/screens/AboutUs.jsx";
+import FAQ from "./components/screens/Faq.jsx";
+import TERMS from "./components/screens/TermsAndConditions.jsx"
 const App = () => {
   return (
     <Router>

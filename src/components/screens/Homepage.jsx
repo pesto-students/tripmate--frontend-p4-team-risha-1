@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from "./sections/Hero";
-import Explore from "./sections/Explore";
-import Testimonial from "./sections/Testimonial";
-import Bloggrid from "./sections/Bloggrid";
+import Hero from "./sections/Hero.jsx";
+import Explore from "./sections/Explore.jsx";
+import Testimonial from "./sections/Testimonial.jsx";
+import Bloggrid from "./sections/Bloggrid.jsx";
 
 const Homepage = () => {
   return (

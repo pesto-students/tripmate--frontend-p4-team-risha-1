@@ -4,10 +4,10 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 import { useSearchParams } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import Aside from "./tripDetailsSection/Aside";
-import Owl from "./tripDetailsSection/Owl";
+import Aside from "./tripDetailsSection/Aside.jsx";
+import Owl from "./tripDetailsSection/Owl.jsx";
 import { createApi } from "unsplash-js";
-import TripHeader from "./tripDetailsSection/TripHeader";
+import TripHeader from "./tripDetailsSection/TripHeader.jsx";
 import axios from "axios";
 
 const api = createApi({

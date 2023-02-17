@@ -52,6 +52,28 @@ const ADDBLOG = () => {
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
             <form>
+
+            <div className="mt-6">
+                <label
+                  for="category"
+                  className="block text-sm font-medium text-gray-700 leading-5"
+                >
+                  PostTitle
+                </label>
+
+                <div className="mt-1 rounded-md shadow-sm">
+                  <input
+                    id="postTitle"
+                    name="postTitle"
+                    type="name"
+                    value={postTitle}
+                    required=""
+                    onChange={(e) => setpostTitle(e.target.value)}
+                    autofocus=""
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 "
+                  />
+                </div>
+              </div>
             <div className="mt-6">
                 <label
                   for="postContent"
@@ -76,29 +98,7 @@ const ADDBLOG = () => {
 
               <div className="mt-6">
                 <label
-                  for="postContent"
-                  className="block text-sm font-medium text-gray-700 leading-5"
-                >
-                  Tags
-                </label>
-
-                <div className="mt-1 rounded-md shadow-sm">
-                  <input
-                    id="tags"
-                    name="tags"
-                    type="name"
-                    value={tags}
-                    required=""
-                    onChange={(e) => settags(e.target.value)}
-                    autofocus=""
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 "
-                  />
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <label
-                  for="postContent"
+                  for="author"
                   className="block text-sm font-medium text-gray-700 leading-5"
                 >
                   Author
@@ -117,7 +117,7 @@ const ADDBLOG = () => {
                   />
                 </div>
               </div>
-
+              
               <div className="mt-6">
                 <label
                   for="category"
@@ -142,20 +142,20 @@ const ADDBLOG = () => {
 
               <div className="mt-6">
                 <label
-                  for="category"
+                  for="tags"
                   className="block text-sm font-medium text-gray-700 leading-5"
                 >
-                  PostTitle
+                  Tags
                 </label>
 
                 <div className="mt-1 rounded-md shadow-sm">
                   <input
-                    id="postTitle"
-                    name="postTitle"
+                    id="tags"
+                    name="tags"
                     type="name"
-                    value={postTitle}
+                    value={tags}
                     required=""
-                    onChange={(e) => setpostTitle(e.target.value)}
+                    onChange={(e) => settags(e.target.value)}
                     autofocus=""
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 "
                   />

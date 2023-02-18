@@ -1,6 +1,6 @@
 import React from "react";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/Ai";
+import { AiOutlineMail } from "react-icons/ai";
 
 const Faq = () => {
   return (

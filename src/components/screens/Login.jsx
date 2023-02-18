@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
-import { GrFacebook } from "react-icons/gr";
 import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -107,13 +105,6 @@ const Login = () => {
                 </span>
               </div>
             </form>
-            <div className="flex justify-center mt-2 space-x-4">
-              <Link to="/">
-                {" "}
-                <FcGoogle size={30} />
-              </Link>
-              <GrFacebook size={30} />
-            </div>
           </div>
         </div>
       </div>

@@ -8,12 +8,15 @@ const BlogSingle = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        //  const backendUrl = import.meta.env.VITE_BACKEND_URL;
         let { data } = await axios.get(
-          `https://tripmate-q32wjds34a-as.a.run.app/blog/${id}`
+          `https://tripmate-q32wjds34a-as.a.run.app/blog/`
         );
-        setBlogData(data);
-        console.log(data);
+        data.forEach((blog) => {
+          if (blog._id === id) {
+            console.log(blog);
+            setBlogData(blog);
+          }
+        });
       } catch (error) {
         console.log(error);
       }

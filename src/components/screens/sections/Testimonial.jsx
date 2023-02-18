@@ -1,19 +1,23 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import OwlCarousel from "react-owl-carousel";
 
-const Testimonial = ({ tourData }) => {
-  //console.log(tourData);
-  const [testimonials, setTestimonials] = useState();
+const Testimonial = () => {
+  const [messages, setMessages] = useState("");
   useEffect(() => {
-    async function getTestimonials() {
-      const { data } = await axios.get(
-        "https://tripmate-q32wjds34a-as.a.run.app/testimonial"
-      );
-      console.log(data);
-      setTestimonials(data);
-    }
+    const getTestimonials = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://tripmate-q32wjds34a-as.a.run.app/testimonial"
+        );
+        console.log(data);
+        setMessages(data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
     getTestimonials();
+    console.log(messages);
   }, []);
   const options = {
     margin: 30,
@@ -49,7 +53,7 @@ const Testimonial = ({ tourData }) => {
       nav
       {...options}
     >
-      {testimonials.map((testimonial) => (
+      {messages.map((testimonial) => (
         <div className="item">
           <div class="h-full bg-gray-100 p-8 rounded">
             <svg
@@ -66,7 +70,6 @@ const Testimonial = ({ tourData }) => {
                 <span class="title-font font-medium text-gray-900">
                   {testimonial.name}
                 </span>
-                <span class="text-gray-500 text-sm">UI DEVELOPER</span>
               </span>
             </a>
           </div>

@@ -107,7 +107,7 @@ const TripDetails = () => {
             </div>
 
             {/* Notes section */}
-            <div className="w-full px-4 py-4 h-auto bg-white">
+            {/* <div className="w-full px-4 py-4 h-auto bg-white">
               <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">Notes</h2>
               <form className="flex">
                 <input
@@ -118,7 +118,7 @@ const TripDetails = () => {
                   Submit
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
           <div className="hidden md:block overflow-hidden w-1/3 h-screen sticky top-0">
             <div className="mapouter">

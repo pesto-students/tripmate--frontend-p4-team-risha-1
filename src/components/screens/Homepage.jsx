@@ -9,7 +9,7 @@ const Homepage = () => {
     <div className=" ">
       <Hero></Hero>
       <Explore></Explore>
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Bloggrid />
     </div>
   );

@@ -40,9 +40,7 @@ const Owl = ({ tourData }) => {
             <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
               <img
                 class="w-48 h-48"
-                src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${photo}&key=${
-                  import.meta.env.VITE_GOOGLE_KEY
-                }`}
+                src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${photo}&key=AIzaSyAMK3vI-Vqdf6l-EwT7xTw3UF-3npnKBGY`}
               />
 
               <div className="px-6 py-4">

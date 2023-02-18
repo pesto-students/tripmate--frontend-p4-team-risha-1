@@ -29,7 +29,7 @@ const ADDBLOG = () => {
       fd.append("postTitle", postTitle);
 
       const data = await axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/blog`, fd)
+        .post(`https://tripmate-q32wjds34a-as.a.run.app/blog`, fd)
         .then((res) => {
           console.log(res);
         });

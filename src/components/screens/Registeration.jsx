@@ -23,7 +23,7 @@ const Registeration = () => {
     if (error === "") {
       try {
         const data = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/users`,
+          `https://tripmate-q32wjds34a-as.a.run.app/users`,
           {
             name,
             email,

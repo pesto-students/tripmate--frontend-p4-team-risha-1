@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { useState } from "react";
 import axios from "axios";
 import { async } from "regenerator-runtime";
 import { data } from "jquery";
 const ADD_USER = () => {
-    // States for registration
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [userRole, setuserRole] = useState('');
-  const [password, setPassword] = useState(''); 
+  // States for registration
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [userRole, setuserRole] = useState("");
+  const [password, setPassword] = useState("");
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -18,7 +18,7 @@ const ADD_USER = () => {
     setName(e.target.value);
     setSubmitted(false);
   };
- 
+
   // Handling the email change
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -33,23 +33,23 @@ const ADD_USER = () => {
     setPassword(e.target.value);
     setSubmitted(false);
   };
- 
+
   // Handling the form submission
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     console.log("in submit");
     e.preventDefault();
-    if (name === '' || email === '' ||userRole==='' || password === '') {
+    if (name === "" || email === "" || userRole === "" || password === "") {
       setError(true);
     } else {
-      try{
+      try {
         setSubmitted(true);
         console.log("in try catch");
-        await axios.post(`${VITE_BACKEND_URL}/users`,{
-          name :name,
-          email : email,
-         password:password             
-      });        
-      }catch(e){
+        await axios.post(`https://tripmate-q32wjds34a-as.a.run.app/users`, {
+          name: name,
+          email: email,
+          password: password,
+        });
+      } catch (e) {
         setError(false);
       }
     }
@@ -65,7 +65,7 @@ const ADD_USER = () => {
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
             <form>
-            <div className="mt-6">
+              <div className="mt-6">
                 <label
                   for="name"
                   className="block text-sm font-medium text-gray-700 leading-5"
@@ -128,7 +128,6 @@ const ADD_USER = () => {
                 </div>
               </div>
 
-             
               <div className="mt-6">
                 <label
                   for="name"
@@ -153,17 +152,16 @@ const ADD_USER = () => {
               <div className="mt-6">
                 <span className="block w-full rounded-md shadow-sm">
                   <button
-                  onClick={handleSubmit}
+                    onClick={handleSubmit}
                     type="submit"
-                    className="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-punch-600 border border-transparent rounded-md hover:bg-punch-500 focus:outline-none focus:border-punch-700 focus:shadow-outline-punch active:bg-punch-700 transition duration-150 ease-in-out"        
+                    className="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-punch-600 border border-transparent rounded-md hover:bg-punch-500 focus:outline-none focus:border-punch-700 focus:shadow-outline-punch active:bg-punch-700 transition duration-150 ease-in-out"
                   >
-                   ADD
+                    ADD
                   </button>
                 </span>
               </div>
             </form>
-            <div className="flex justify-center mt-2 space-x-4">
-            </div>
+            <div className="flex justify-center mt-2 space-x-4"></div>
           </div>
         </div>
       </div>

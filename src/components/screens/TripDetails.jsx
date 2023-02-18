@@ -92,7 +92,10 @@ const TripDetails = () => {
               startDate={startDate}
               endDate={endDate}
             />
-            <div className="bg-gray-100 px-4 py-4 h-auto w-full container ">
+            <div
+              id="overview"
+              className="bg-gray-100 px-4 py-4 h-auto w-full container "
+            >
               <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">
                 Explore Tourist Places
               </h2>

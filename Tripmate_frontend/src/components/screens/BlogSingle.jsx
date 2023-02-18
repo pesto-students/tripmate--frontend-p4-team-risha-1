@@ -9,9 +9,16 @@ const BlogSingle = () => {
     const fetchBlog = async () => {
       try {
         const backendUrl = import.meta.env.VITE_BACKEND_URL;
-        let { data } = await axios.get(`${backendUrl}/blog/${id}`);
-        setBlogData(data);
-        console.log(data);
+        let { data } = await axios.get(`${backendUrl}/blog`);
+       
+        data.forEach((blog) => {
+          if(blog._id===id){
+           
+            console.log(blog);
+            setBlogData(blog);
+          }
+        })
+        
       } catch (error) {
         console.log(error);
       }

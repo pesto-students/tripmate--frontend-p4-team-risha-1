@@ -1,6 +1,6 @@
 import React from "react";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import {AiOutlineMail} from "react-icons/Ai";
+import { AiOutlineMail } from "react-icons/ai";
 
 const ContactUs = () => {
   return (
@@ -10,18 +10,17 @@ const ContactUs = () => {
         style={{
           backgroundImage: `url("./assets/image.jpg")`,
         }}
-      > 
+      >
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">  
-              <div className="mt-6">
-                <BsFillTelephoneFill size={30} />
-                 999-99-999-99
-                
-              </div>
-              <div className="mt-6">
-              <AiOutlineMail size={30}/>
-                 abc.pqr@gmail.com
-              </div>
+          <div className="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
+            <div className="mt-6">
+              <BsFillTelephoneFill size={30} />
+              999-99-999-99
+            </div>
+            <div className="mt-6">
+              <AiOutlineMail size={30} />
+              abc.pqr@gmail.com
+            </div>
           </div>
         </div>
       </div>

@@ -13,7 +13,6 @@ import FAQ from "./components/screens/Faq";
 import TERMS from "./components/screens/TermsAndConditions";
 import USER_DETAILS from './components/screens/sections/UsersDetail'
 import ADDBLOG from './components/screens/sections/AddBlog';
-import TripDetails from "./components/screens/TripDetails.jsx";
 
 const App = () => {
   

@@ -1,5 +1,5 @@
 import React from "react";
-import { exploreData } from "../../../data/explore";
+import { exploreData } from "../../../data/explore.js";
 const Explore = () => {
   const data = exploreData;
 

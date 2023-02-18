@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Blogcard from "./Blogcard";
+import Blogcard from "./Blogcard.jsx";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchBlogsAsync } from "../../../slice/blogSlice";
+import { fetchBlogsAsync } from "../../../slice/blogSlice.js";
 const Bloggrid = () => {
   const blogs = useSelector((state) => state.blogs.blogs);
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Bloggrid = () => {
       <div className="flex flex-wrap -m-4">
         {blogs.map((blog) => (
           <div class="max-w-sm m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
+            <a href="src/components/screens/sections#">
               <img
                 className="lg:h-48 md:h-36 w-full object-cover object-center"
                 src={blog.photoUrl}
@@ -27,7 +27,7 @@ const Bloggrid = () => {
               />
             </a>
             <div class="p-5">
-              <a href="#">
+              <a href="src/components/screens/sections#">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {blog.postTitle}
                 </h5>

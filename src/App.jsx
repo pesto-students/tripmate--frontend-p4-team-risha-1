@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import Homepage from "./components/screens/Homepage";
-import BlogSingle from "./components/screens/BlogSingle";
+import Header from "./components/layout/Header.jsx";
+import Footer from "./components/layout/Footer.jsx";
+import Homepage from "./components/screens/Homepage.jsx";
+import BlogSingle from "./components/screens/BlogSingle.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TripDetails from "./components/screens/TripDetails";
 import Login from "./components/screens/Login";
@@ -13,6 +13,8 @@ import FAQ from "./components/screens/Faq";
 import TERMS from "./components/screens/TermsAndConditions";
 import USER_DETAILS from './components/screens/sections/UsersDetail'
 import ADDBLOG from './components/screens/sections/AddBlog';
+import TripDetails from "./components/screens/TripDetails.jsx";
+
 const App = () => {
   
   return (

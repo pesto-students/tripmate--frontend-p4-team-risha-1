@@ -4,10 +4,10 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 import { useSearchParams } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import Aside from "./tripDetailsSection/Aside";
-import Owl from "./tripDetailsSection/Owl";
+import Aside from "./tripDetailsSection/Aside.jsx";
+import Owl from "./tripDetailsSection/Owl.jsx";
 import { createApi } from "unsplash-js";
-import TripHeader from "./tripDetailsSection/TripHeader";
+import TripHeader from "./tripDetailsSection/TripHeader.jsx";
 import axios from "axios";
 
 const api = createApi({
@@ -45,24 +45,32 @@ const TripDetails = () => {
       const place_url = `https://us1.locationiq.com/v1/search?key=${
         import.meta.env.VITE_LOCATION_KEY
       }&q=${location}&format=json`;
-      const { data } = await axios.get(place_url);
-      const lat = data[0].lat;
-      //setLettitude(lat);
-      const lon = data[0].lon;
+      const gurl = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAMK3vI-Vqdf6l-EwT7xTw3UF-3npnKBGY`;
+      const { data } = await axios.get(gurl);
+      // const lat = data[0].lat;
+      // //setLettitude(lat);
+      // const lon = data[0].lon;
+      const { lat, lng } = data.results[0].geometry.location;
       //setLongitude(lon);
-      console.log(lat, lon);
+      console.log(lat, lng);
       console.log(`${import.meta.env.VITE_BACKEND_URL}/fetchPlaces`);
-      const d = await axios.post(`https://tripmate-q32wjds34a-as.a.run.app/fetchPlaces`, {
-        location: `${lat},${lon}`,
-        radius: 50000,
-        type: "tourist_attraction",
-      });
+      const d = await axios.post(
+        `https://tripmate-q32wjds34a-as.a.run.app/fetchPlaces`,
+        {
+          location: `${lat},${lng}`,
+          radius: 50000,
+          type: "tourist_attraction",
+        }
+      );
 
-      const r = await axios.post(`https://tripmate-q32wjds34a-as.a.run.app/fetchPlaces`, {
-        location: `${lat},${lon}`,
-        radius: 50000,
-        type: "restaurant",
-      });
+      const r = await axios.post(
+        `https://tripmate-q32wjds34a-as.a.run.app/fetchPlaces`,
+        {
+          location: `${lat},${lng}`,
+          radius: 50000,
+          type: "restaurant",
+        }
+      );
 
       // console.log(d.data.results);
       setRestaurant(r.data);

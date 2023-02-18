@@ -88,7 +88,7 @@ const Login = () => {
 
                 <div className="text-sm leading-5">
                   <a
-                    href="#"
+                    href="src/components/screens#"
                     className="font-medium text-punch-600 hover:text-punch-500 focus:outline-none focus:underline transition ease-in-out duration-150"
                   >
                     Forgot your password?s

@@ -16,9 +16,9 @@ const Bloggrid = () => {
       <h1 className="text-center font-bold text-4xl mb-20 font-Nunito text-punch-400">
         Our Blogs
       </h1>
-      <div className="flex flex-wrap -m-4">
+      <div className="flex flex-wrap -m-4 w-full">
         {blogs.map((blog) => (
-          <div class="max-w-sm m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-[30%] m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="src/components/screens/sections#">
               <img
                 className="lg:h-48 md:h-36 w-full object-cover object-center"

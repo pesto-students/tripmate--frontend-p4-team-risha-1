@@ -1,6 +1,4 @@
 import React from "react";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/Ai";
 
 const AboutUs = () => {
   return (

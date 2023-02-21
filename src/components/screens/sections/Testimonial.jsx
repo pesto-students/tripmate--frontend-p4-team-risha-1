@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import OwlCarousel from "react-owl-carousel";
 
 const Testimonial = () => {
   const [messages, setMessages] = useState("");
@@ -45,7 +44,8 @@ const Testimonial = () => {
       },
     },
   };
-  return (
+  return <div/>
+  /*return (
     <OwlCarousel
       className="owl-theme mx-auto w-2/3"
       loop
@@ -76,6 +76,6 @@ const Testimonial = () => {
         </div>
       ))}
     </OwlCarousel>
-  );
+  );*/
 };
 export default Testimonial;

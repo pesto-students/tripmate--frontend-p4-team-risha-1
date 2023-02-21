@@ -1,11 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { BsCalendar2DateFill } from "react-icons/bs";
 import { useSearchParams } from "react-router-dom";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
 import Aside from "./tripDetailsSection/Aside.jsx";
-import Owl from "./tripDetailsSection/Owl.jsx";
 import { createApi } from "unsplash-js";
 import TripHeader from "./tripDetailsSection/TripHeader.jsx";
 import axios from "axios";
@@ -99,14 +95,14 @@ const TripDetails = () => {
               <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">
                 Explore Tourist Places
               </h2>
-              <Owl tourData={tourData} />
+              {/*<Owl tourData={tourData} />*/}
             </div>
 
             <div className="bg-white px-4 py-4 h-auto w-full container ">
               <h2 className="text-xl font-bold font-Nunito mt-4 mb-4">
                 Popular Restaurant
               </h2>
-              <Owl tourData={restaurant} />
+              {/*<Owl tourData={restaurant} />*/}
             </div>
 
             {/* Notes section */}
